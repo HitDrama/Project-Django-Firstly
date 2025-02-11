@@ -31,12 +31,12 @@ Dự án **không bao gồm database**, bạn cần **tạo superuser** để c�
    ```bash
    python manage.py createsuperuser
 ```
-2️⃣ Nhập thông tin tài khoản quản trị, bao gồm:
+2️⃣ **Nhập thông tin tài khoản quản trị, bao gồm:
 
 Username – Tên đăng nhập
 Email – Không bắt buộc
 Password – Mật khẩu quản trị
-3️⃣ Sau khi tạo tài khoản, mở database và chỉnh sửa giá trị is_superuser trong bảng auth_user, đặt giá trị là 1 để cấp quyền quản trị.
+3️⃣ **Sau khi tạo tài khoản, mở database và chỉnh sửa giá trị is_superuser trong bảng auth_user, đặt giá trị là 1 để cấp quyền quản trị.
 
 📩 Liên hệ
 Nếu có bất kỳ thắc mắc nào hoặc cần hỗ trợ, vui lòng liên hệ qua:
