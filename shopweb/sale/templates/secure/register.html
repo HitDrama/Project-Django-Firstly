@@ -1,0 +1,58 @@
+{% extends 'secure/layout.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-body text-center">
+        <div class="mb-4">
+            {% load static %}
+            <img class="brand" src="{% static 'backend/img/bootstraper-logo.png' %}" alt="bootstraper logo">
+        </div>
+        <h6 class="mb-4 text-muted">Create new account</h6>
+        
+        <form  method="post">
+            {% csrf_token %}
+            <div class="mb-3 text-start">
+                <label for="name" class="form-label">Name</label>
+                {{ form.username }}
+                {% if form.errors %}
+                    <div class="text-danger" role="alert">
+                        {{ form.errors.username }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-3 text-start">
+                <label for="email" class="form-label">Email adress</label>
+                {{ form.email }}
+                {% if form.errors %}
+                    <div class="text-danger" role="alert">
+                        {{ form.errors.email }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-3 text-start">
+                <label for="password" class="form-label">Password</label>
+                {{ form.password1 }}
+                {% if form.errors %}
+                    <div class="text-danger" role="alert">
+                        {{ form.errors.password1 }}
+                    </div>
+                {% endif %}
+            </div>
+            <!-- 
+            <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Confirm password" required>
+            </div> 
+            -->
+            <div class="mb-3 text-start">
+                <div class="form-check">
+                  <input class="form-check-input" name="confirm" type="checkbox" value="" id="check1">
+                  <label class="form-check-label" for="check1">
+                    I agree to the <a href="#" tabindex="-1">terms and policy</a>.
+                  </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary shadow-2 mb-4">Register</button>
+        </form>
+        <p class="mb-0 text-muted">Allready have an account? <a href="{% url 'w.login' %}">Log in</a></p>
+    </div>
+</div>
+{% endblock %}

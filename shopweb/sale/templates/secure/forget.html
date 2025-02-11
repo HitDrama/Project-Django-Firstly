@@ -1,0 +1,30 @@
+{% extends 'secure/layout.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body text-center">
+        <div class="mb-4">
+            {% load static %}
+            <img class="brand" src="{% static 'backend/img/bootstraper-logo.png' %}" alt="bootstraper logo">
+        </div>
+        <h6 class="mb-4 text-muted">Reset Password</h6>
+        {% if messages %}
+            {% for thongbao in messages %}
+                <div class="text-success" role="alert">
+                    {{ thongbao }}
+                </div>
+            {% endfor %}
+        {% endif %} 
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3 text-start">
+                <label for="email" class="form-label">Email adress</label>
+                {{ form.email }}
+            </div>           
+            <button class="btn btn-primary shadow-2 mb-4">Reset</button>
+        </form>
+        <p class="mb-2 text-muted">Login <a href="{% url 'w.login' %}">Login</a></p>
+        <p class="mb-0 text-muted">Don't have account yet? <a href="{% url 'w.register' %}">Signup</a></p>
+    </div>
+</div>
+{% endblock %}

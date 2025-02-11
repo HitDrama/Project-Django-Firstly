@@ -1,0 +1,84 @@
+{% extends 'system/layout.html' %}
+{% block content %}
+<div class="container">
+    <div class="page-title">
+      <h3>Tables</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <a href="{% url 's.add_account' %}" class="btn btn-primary mb-3">Add</a>
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div class="toast fade show bg-danger text-white show" role="alert"
+                    aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+                    <div class="toast-header">
+                        <strong class="me-auto">Tự tắt sau 3 giây</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      {{message}}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+                <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div> -->
+            {% endif %}
+          </div>
+          <div class="card-body">
+            <p class="card-title"></p>
+            <table
+              class="table table-hover"
+              id="dataTables-example"
+              width="100%"
+            >
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>UserName</th>
+                  <th>Email</th>
+                  <th>User/Admin</th>
+                  <th>Phone</th>
+                  <th>Image</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for x in account %}
+                <tr>
+                  <td>{{x.id}}</td>
+                  <td>{{x.username}}</td>
+                  <td>{{x.email}}</td>                  
+                  <td style="text-align: center;">
+                    {% if x.is_superuser == 1 %}
+                        <i class="fas fa-check"></i>
+                    {% else %}
+                        <i class="fas fa-times"></i>
+                    {% endif %}
+                </td>
+                  <td>{{x.phone}}</td>
+                  <td><img src="/{{x.image}}" width="50px" /></td>
+                  <td>
+                    <a href="{% url 's.del_account' x.id %}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    |
+                    <a href="{% url 's.edit_account' x.id %}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load custom_filter %}
+{% for x in all %}
+<div class="col-md-6 col-lg-6 col-xl-4">
+
+    <div class="rounded position-relative fruite-item">
+        <a href="{% url 'w.detail' x.id %}">
+            <div class="fruite-img">
+                <img src="{{ x.image.url }}" class="img-fluid w-100 rounded-top" alt="{{ x.name }}">
+            </div>
+        </a>
+        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+            <a href="#">
+                <h4>{{x.name}}</h4>
+            </a>
+            <p>{{ x.decription|html_decape|safe }}</p>
+            <div class="d-flex justify-content-between flex-lg-wrap">
+                <p class="text-dark fs-5 fw-bold mb-0">
+                    {% load humanize %}
+                    ${{x.price|floatformat:2|intcomma }}/ kg</p>
+                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endfor %}

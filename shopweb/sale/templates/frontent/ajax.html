@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AJAX Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Send Data to Django View</h1>
+    <input type="text" id="data-input" placeholder="Enter some text">
+    <input type="text" id="data-name" placeholder="Enter some name">
+    <button id="send-button">Send Data</button>
+    <p>Result: <div id="result"></div></p>
+    <script>
+        $(document).ready(function () {
+            $('#send-button').click(function () {
+                var inputData = $('#data-input').val();
+                var inputName = $('#data-name').val();
+                $.ajax({
+                    url: '{% url "w.process_data" %}',
+                    type: 'POST',
+                    data: {
+                        'data': inputData,
+                        'name': inputName
+                    },
+                    success: function (response) {
+                        // alert(response.result + ' ' + response.name);   #hiện thông báo
+                        $('#result').text(response.result+"-"+response.name); //{'result': processed_data}
+                    },
+                    error: function (xhr, status, error) { //{'error': 'Invalid request method'}
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

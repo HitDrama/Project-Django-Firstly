@@ -1,0 +1,106 @@
+{% extends 'system/layout.html' %}
+{% block content %}
+<div class="container">
+    <div class="page-title">
+      <h3>Forms</h3>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">All form elements</div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <form method="post" enctype="multipart/form-data" >
+              {% csrf_token %}
+              <div class="mb-3 row">
+                <label class="col-sm-2">UserName</label>
+                <div class="col-sm-10">
+                    {{form.username}}
+                    {% if form.errors.username %}
+                        <div class="alert alert-danger">{{form.errors.username}}</div>
+                    {% endif %}
+                </div>
+              </div>
+              <div class="line"></div>
+              <br />
+              <div class="mb-3 row">
+                <label class="col-sm-2">Password</label>
+                <div class="col-sm-10">
+                  {{form.password1}}
+                  {% if form.errors.password1 %}
+                        <div class="alert alert-danger">{{form.errors.password1}}</div>
+                    {% endif %}
+                </div>
+              </div>
+              <div class="line"></div>
+              <br />
+              <div class="mb-3 row">
+                <label class="col-sm-2">Email</label>
+                <div class="col-sm-10">
+                  {{form.email}}
+                  {% if form.errors.email %}
+                        <div class="alert alert-danger">{{form.errors.email}}</div>
+                    {% endif %}
+                </div>
+              </div>
+              <div class="line"></div>
+              <br />
+              <div class="mb-3 row">
+                <label class="col-sm-2">Permission</label>
+                <div class="col-sm-10">
+                  {{form.is_superuser}}
+                </div>
+              </div>
+              <div class="line"></div>
+              <br />
+              <div class="mb-3 row">
+                <label class="col-sm-2">Image</label>
+                <div class="col-sm-10">
+                    {{form.image}}
+                    {% if form.errors.image %}
+                        <div class="alert alert-danger">{{form.errors.image}}</div>
+                    {% endif %}
+                </div>
+              </div>
+ 
+              <div class="line"></div>
+              <br />
+              <div class="mb-3 row">
+                <label class="col-sm-2">Active</label>
+                <div class="col-sm-10">
+                    {{form.is_active}}
+                </div>
+              </div>
+
+              <div class="line"></div>
+              <br />
+              <div class="mb-3 row">
+                <label class="col-sm-2">Phone</label>
+                <div class="col-sm-10">
+                    {{form.phone}}
+                    {% if form.errors.phone %}
+                        <div class="alert alert-danger">{{form.errors.phone}}</div>
+                    {% endif %}
+                </div>
+              </div>
+
+              <div class="line"></div>
+              <br />
+              <div class="mb-3 row">
+                <div class="col-sm-4 offset-sm-2">
+                  <button type="submit" class="btn btn-primary mb-2">
+                    <i class="fas fa-save"></i> Save
+                  </button>
+                  <a href="{% url 's.account' %}" class="btn btn-danger mb-2">
+                    <i class="fas fa-times"></i>Cancel
+                  </a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

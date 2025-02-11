@@ -1,0 +1,50 @@
+{% extends 'system/layout.html' %}
+{% block content %}
+<div class="container">
+    <div class="page-title">
+      <h3>Tables</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <a href="{% url 's.add_category' %}" class="btn btn-primary mb-3">Add</a>
+        <div class="card">
+          <div class="card-body">
+            <p class="card-title"></p>
+            <table
+              class="table table-hover"
+              id="dataTables-example"
+              width="100%"
+            >
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Keywords</th>
+                  <th>Slug</th>
+                  <th>Parent</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for x in cate %}
+                <tr>
+                  <td>{{x.id}}</td>
+                  <td>{{x.title}}</td>
+                  <td>{{x.keywords}}</td>
+                  <td>{{x.slug}}</td>
+                  <td>{{x.parent}}</td>
+                  <td>
+                    <a href="{% url 's.del_category' x.id %}" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    |
+                    <a href="{% url 's.edit_category' x.id %}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
