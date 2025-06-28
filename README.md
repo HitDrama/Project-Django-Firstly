@@ -1,7 +1,27 @@
-# 🌐 Django Web Project  
+<div align="center">
 
-## 📖 Giới thiệu  
-Đây là **dự án đầu tiên** được xây dựng bằng **Django**, bao gồm các trang quản lý hệ thống và các chức năng cơ bản của một **website thương mại điện tử**.  
+  # 🌐 Django Web Project
+
+  <img src="https://github.com/HitDrama/Project-Django-Firstly/blob/master/shopweb/sale/static/imgs/Django%20Web%20Project.png" alt="Banner" style="max-width: 100%; height: auto;"/>
+
+</div>
+
+
+
+## 📖 Giới thiệu
+
+Đây là **dự án đầu tiên** được xây dựng bằng **Django**, bao gồm các trang quản lý hệ thống và các chức năng cơ bản của một **website thương mại điện tử**.
+
+
+## 🎥 Demo
+<div align="center">
+<a href="https://drive.google.com/file/d/1FDvYllsbow9nXxca2rDr22FKOeO9Gy3T/view?usp=sharing" target="_blank">
+  <img src="https://github.com/HitDrama/Project-Django-Firstly/blob/master/shopweb/sale/static/imgs/Django.gif" alt="Xem video demo" style="max-width: 100%; height: auto;"/>
+</a>
+   <p>📌 *Nhấn vào video demo hoặc liên kết để xem video demo đầy đủ.*</p>
+</div>
+
+
 
 ## 🏗️ Cấu trúc dự án  
 ### **1. Pages - Trang chính**  
